@@ -6,15 +6,15 @@ Console.Write("Введите число: ");
 int number = int.Parse(Console.ReadLine()!);
 
 
-int prodGlobal = Productioner(number);
-Console.Write(prodGlobal);
+int production = Productioner(number);
+Console.Write(production);
 
 int Productioner(int a)
 {
     int production = 1;
-    for (int i = 1; i <= a; i++)
+    for (int i=1; i<=a; i++)
     {
-        production = production * i;
+        production=production*i;
     }
     return production;
 }
