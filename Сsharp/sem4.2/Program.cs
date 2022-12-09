@@ -8,7 +8,7 @@ int number = int.Parse(Console.ReadLine()!);
 
 
 int count = Counter(number);
-Console.Write(count);
+Console.WriteLine(count);
 
 int Counter(int a)
 {
