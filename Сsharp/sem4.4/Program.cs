@@ -62,3 +62,5 @@ PrintArray(array);
 
 // int[] secondArray = GenerateArray();
 // Console.WriteLine(ArrayToString(secondArray));
+
+// Random Rand = new Random(); - введение переменной ранд, чтоб использовать создание рэндома много раз
