@@ -11,14 +11,14 @@ int numberB = int.Parse(Console.ReadLine()!);
 
 int exponent = numberA;
 
+for (int i = 1; i < numberB; i++)
+{
+    exponent = exponent * numberA;
+}
 while (numberA == 0 && numberB == 0)
 {
     Console.Write("Выражение не имеет смысла, так как не может быть определено");
     return;
-}
-for (int i = 1; i < numberB; i++)
-{
-    exponent = exponent * numberA;
 }
 Console.WriteLine("A в степени B равно: " + exponent);
 
