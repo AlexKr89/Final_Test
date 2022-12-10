@@ -3,17 +3,17 @@
 // 3, 5 -> 243 (3⁵)
 
 // 2, 4 -> 16
-Console.Write("Введите число A: ");
-int numberA = int.Parse(Console.ReadLine()!);
-Console.Write("Введите число B: ");
-int numberB = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите число A: ");
+// int numberA = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите число B: ");
+// int numberB = int.Parse(Console.ReadLine()!);
 
-while (numberA == 0 && numberB == 0)
-{
-    Console.Write("Выражение не имеет смысла, так как не может быть определено");
-    return;
-}
-Console.Write("A в степени B = " + (Math.Pow(numberA, numberB)));
+// while (numberA == 0 && numberB == 0)
+// {
+//     Console.Write("Выражение не имеет смысла, так как не может быть определено");
+//     return;
+// }
+// Console.Write("A в степени B = " + (Math.Pow(numberA, numberB)));
 
 
 // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
@@ -40,3 +40,37 @@ Console.Write("A в степени B = " + (Math.Pow(numberA, numberB)));
 //     }
 //     return sum;
 // }
+
+// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+
+// 6, 1, 33 -> [6, 1, 33]
+
+void FillArray(int[] collection)
+{
+    int length = collection.Length;
+    int index = 0;
+    while (index < length)
+    {
+        collection[index] = new Random().Next(0, 8);
+        index++;
+    }
+}
+void PrintArray(int[] col)
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(col[position]);
+        position++;
+    }
+}
+
+int[] array = new int[8];
+
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+
