@@ -4,23 +4,23 @@
 
 // 2, 4 -> 16
 
-Console.Write("Введите число A: ");
-int numberA = int.Parse(Console.ReadLine()!);
-Console.Write("Введите число B: ");
-int numberB = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите число A: ");
+// int numberA = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите число B: ");
+// int numberB = int.Parse(Console.ReadLine()!);
 
-int exponent = numberA;
+// int exponent = numberA;
 
-for (int i = 1; i < numberB; i++)
-{
-    exponent = exponent * numberA;
-}
-while (numberA == 0 && numberB == 0)
-{
-    Console.Write("Выражение не имеет смысла, так как не может быть определено");
-    return;
-}
-Console.WriteLine("A в степени B равно: " + exponent);
+// for (int i = 1; i < numberB; i++)
+// {
+//     exponent = exponent * numberA;
+// }
+// while (numberA == 0 && numberB == 0)
+// {
+//     Console.Write("Выражение не имеет смысла, так как не может быть определено");
+//     return;
+// }
+// Console.WriteLine("A в степени B равно: " + exponent);
 
 
 // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
@@ -82,3 +82,33 @@ Console.WriteLine("A в степени B равно: " + exponent);
 // PrintArray(array);
 // Console.WriteLine();
 
+Random rand = new Random();
+Console.Write("введите минимальное значение: ");
+int min = int.Parse(Console.ReadLine()!);
+Console.Write("введите максимальное значение: ");
+int max = int.Parse(Console.ReadLine()!);
+Console.Write("введите количество столбцов массива: ");
+int n = int.Parse(Console.ReadLine()!);
+
+int[] array = new int[n];
+int[] FillArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(0, n);
+    }
+    return array;
+}
+void PrintArray(int[] array)
+{
+    int count = array.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write(array[position]);
+        position++;
+    }
+}
+FillArray(array);
+
+PrintArray(array);
