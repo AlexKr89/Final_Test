@@ -4,6 +4,8 @@
 // 4; массив [6, 7, 19, 345, 3] -> нет
 // -3; массив [6, 7, 19, 345, 3] -> да
 
+
+// Задача 32
 Console.WriteLine("Введите размер массива");
 int N =int.Parse(Console.ReadLine()!);
 
@@ -43,3 +45,5 @@ void PrintArray(int[] array)
     }
     Console.WriteLine();
 }
+
+// Задача 33
