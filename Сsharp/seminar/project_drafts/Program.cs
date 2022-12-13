@@ -4,23 +4,23 @@
 
 // 2, 4 -> 16
 
-Console.Write("Введите число A: ");
-int numberA = int.Parse(Console.ReadLine()!);
-Console.Write("Введите число B: ");
-int numberB = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите число A: ");
+// int numberA = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите число B: ");
+// int numberB = int.Parse(Console.ReadLine()!);
 
-int exponent = numberA;
+// int exponent = numberA;
 
-for (int i = 1; i < numberB; i++)
-{
-    exponent = exponent * numberA;
-}
-while (numberA == 0 && numberB == 0)
-{
-    Console.Write("Выражение не имеет смысла, так как не может быть определено");
-    return;
-}
-Console.WriteLine("A в степени B = " + exponent);
+// for (int i = 1; i < numberB; i++)
+// {
+//     exponent = exponent * numberA;
+// }
+// while (numberA == 0 && numberB == 0)
+// {
+//     Console.Write("Выражение не имеет смысла, так как не может быть определено");
+//     return;
+// }
+// Console.WriteLine("A в степени B = " + exponent);
 
 
 // Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
@@ -85,3 +85,39 @@ Console.WriteLine("A в степени B = " + exponent);
 // FillArray(array);
 
 // PrintArray(array);
+
+int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+
+void PrintArray(int[] array)
+{
+    int count = array.Length;
+
+    for (int i = 0; i < count; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
+
+void SelectionSort(int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] < array[minPosition])
+            {
+                minPosition = j;
+            }
+        }
+        int temprorary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temprorary;
+    }
+}
+
+PrintArray(arr);
+SelectionSort(arr);
+
+PrintArray(arr);
