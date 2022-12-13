@@ -86,38 +86,84 @@
 
 // PrintArray(array);
 
-int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+// int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
 
-void PrintArray(int[] array)
+// void PrintArray(int[] array)
+// {
+//     int count = array.Length;
+
+//     for (int i = 0; i < count; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+
+// void SelectionSort(int[] array)
+// {
+//     for (int i = 0; i < array.Length - 1; i++)
+//     {
+//         int minPosition = i;
+//         for (int j = i + 1; j < array.Length; j++)
+//         {
+//             if (array[j] < array[minPosition])
+//             {
+//                 minPosition = j;
+//             }
+//         }
+//         int temprorary = array[i];
+//         array[i] = array[minPosition];
+//         array[minPosition] = temprorary;
+//     }
+// }
+
+// PrintArray(arr);
+// SelectionSort(arr);
+
+// PrintArray(arr);
+
+int[] RandomArray(int size)
 {
-    int count = array.Length;
-
-    for (int i = 0; i < count; i++)
+    int[] threeDigArray = new int[size];
+    for (int i = 0; i < size; i++)
     {
-        Console.Write($"{array[i]} ");
+        threeDigArray[i] = new Random().Next(100, 1000);
     }
-    Console.WriteLine();
+    return threeDigArray;
 }
 
-void SelectionSort(int[] array)
+int numEven(int[] arr)
 {
-    for (int i = 0; i < array.Length - 1; i++)
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
     {
-        int minPosition = i;
-        for (int j = i + 1; j < array.Length; j++)
+        if (arr[i] % 2 == 0)
         {
-            if (array[j] < array[minPosition])
-            {
-                minPosition = j;
-            }
+            count++;
         }
-        int temprorary = array[i];
-        array[i] = array[minPosition];
-        array[minPosition] = temprorary;
+    }
+    return count;
+}
+Console.Write("Введите размер массива: ");
+int tempsize = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine();
+
+int[] arr = RandomArray(tempsize);
+
+for (int i = 0; i < tempsize; i++)
+{
+    if (i < tempsize - 1)
+    {
+        Console.Write(arr[i] + " ");
+    }
+    else
+    {
+        Console.Write(arr[i]);
     }
 }
+Console.WriteLine();
 
-PrintArray(arr);
-SelectionSort(arr);
+Console.WriteLine();
 
-PrintArray(arr);
+Console.WriteLine("Количество четных = " + numEven(arr));
