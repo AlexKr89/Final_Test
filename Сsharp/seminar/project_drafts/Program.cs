@@ -237,6 +237,7 @@
 // [3 7 22 2 78] -> 76
 
 Random rnd = new Random();
+
 Console.Write("Введите размер массива: ");
 int numsize = int.Parse(Console.ReadLine()!);
 
