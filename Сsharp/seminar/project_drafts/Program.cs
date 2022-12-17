@@ -86,7 +86,7 @@
 
 // PrintArray(array);
 
-// int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+// int[] array = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
 
 // void PrintArray(int[] array)
 // {
@@ -117,10 +117,25 @@
 //     }
 // }
 
-// PrintArray(arr);
-// SelectionSort(arr);
+// PrintArray(array);
+// SelectionSort(array);
 
-// PrintArray(arr);
+// PrintArray(array);
+
+
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
+// Напишите программу, которая покажет количество чётных чисел в массиве.
+// Размер массива вводим через консоль
+
+// [345, 897, 568, 234] -> 2
+
+Console.Write("Введите размер массива: ");
+int numsize = int.Parse(Console.ReadLine()!);
+
+int[] fillArray = RandomArray(numsize);
+Console.WriteLine();
+
+PrintArray(fillArray);
 
 int[] RandomArray(int size)
 {
@@ -132,38 +147,26 @@ int[] RandomArray(int size)
     return threeDigArray;
 }
 
-int numEven(int[] arr)
+int numEvenCounter(int[] fillArray)
 {
     int count = 0;
-    for (int i = 0; i < arr.Length; i++)
+    for (int i = 0; i < fillArray.Length; i++)
     {
-        if (arr[i] % 2 == 0)
+        if (fillArray[i] % 2 == 0)
         {
             count++;
         }
     }
     return count;
 }
-Console.Write("Введите размер массива: ");
-int tempsize = int.Parse(Console.ReadLine()!);
-
-Console.WriteLine();
-
-int[] arr = RandomArray(tempsize);
-
-for (int i = 0; i < tempsize; i++)
+void PrintArray(int[] array)
 {
-    if (i < tempsize - 1)
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(arr[i] + " ");
+        Console.Write(array[i] + " ");
     }
-    else
-    {
-        Console.Write(arr[i]);
-    }
+    Console.WriteLine();
 }
 Console.WriteLine();
 
-Console.WriteLine();
-
-Console.WriteLine("Количество четных = " + numEven(arr));
+Console.Write("Количество четных = " + numEvenCounter(fillArray));
