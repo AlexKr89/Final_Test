@@ -5,17 +5,17 @@
 // 2, 4 -> 16
 
 // Console.Write("Введите число A: ");
-// int numberA = int.Parse(Console.ReadLine()!);
+// int sumberA = int.Parse(Console.ReadLine()!);
 // Console.Write("Введите число B: ");
-// int numberB = int.Parse(Console.ReadLine()!);
+// int sumberB = int.Parse(Console.ReadLine()!);
 
-// int exponent = numberA;
+// int exponent = sumberA;
 
-// for (int i = 1; i < numberB; i++)
+// for (int i = 1; i < sumberB; i++)
 // {
-//     exponent = exponent * numberA;
+//     exponent = exponent * sumberA;
 // }
-// while (numberA == 0 && numberB == 0)
+// while (sumberA == 0 && sumberB == 0)
 // {
 //     Console.Write("Выражение не имеет смысла, так как не может быть определено");
 //     return;
@@ -32,9 +32,9 @@
 // 9012 -> 12
 
 // Console.Write("Введите число: ");
-// int number = int.Parse(Console.ReadLine()!);
+// int sumber = int.Parse(Console.ReadLine()!);
 
-// int sum = sumDigit(number);
+// int sum = sumDigit(sumber);
 // Console.WriteLine(sum);
 
 // int sumDigit(int n)
@@ -42,9 +42,9 @@
 //     int sum = 0;
 //     while (n > 0)
 //     {
-//         int num = n % 10;
+//         int sum = n % 10;
 //         n = n / 10;
-//         sum = sum + num;
+//         sum = sum + sum;
 //     }
 //     return sum;
 // }
@@ -74,9 +74,9 @@
 // }
 // void PrintArray(int[] array)
 // {
-//     int count = array.Length;
+//     int calc = array.Length;
 //     int position = 0;
-//     while (position < count)
+//     while (position < calc)
 //     {
 //         Console.Write(array[position] + " ");
 //         position++;
@@ -90,9 +90,9 @@
 
 // void PrintArray(int[] array)
 // {
-//     int count = array.Length;
+//     int calc = array.Length;
 
-//     for (int i = 0; i < count; i++)
+//     for (int i = 0; i < calc; i++)
 //     {
 //         Console.Write($"{array[i]} ");
 //     }
@@ -129,44 +129,100 @@
 
 // [345, 897, 568, 234] -> 2
 
-Console.Write("Введите размер массива: ");
-int numsize = int.Parse(Console.ReadLine()!);
+// Console.Write("Введите размер массива: ");
+// int numsize = int.Parse(Console.ReadLine()!);
 
-int[] fillArray = RandomArray(numsize);
-Console.WriteLine();
+// int[] newArray = GenerateArray(numsize);
+// Console.WriteLine();
 
-PrintArray(fillArray);
+// PrintArray(newArray);
 
-int[] RandomArray(int size)
-{
-    int[] threeDigArray = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        threeDigArray[i] = new Random().Next(100, 1000);
-    }
-    return threeDigArray;
-}
+// int[] GenerateArray(int size)
+// {
+//     int[] arrayRnd = new int[size];
+//     for (int i = 0; i < size; i++)
+//     {
+//         arrayRnd[i] = new Random().Next(100, 1000);
+//     }
+//     return arrayRnd;
+// }
 
-int numEvenCounter(int[] fillArray)
-{
-    int count = 0;
-    for (int i = 0; i < fillArray.Length; i++)
-    {
-        if (fillArray[i] % 2 == 0)
-        {
-            count++;
-        }
-    }
-    return count;
-}
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
-}
-Console.WriteLine();
+// int sumOdd(int[] newArray)
+// {
+//     int calc = 0;
+//     for (int i = 0; i < newArray.Length; i++)
+//     {
+//         if (newArray[i] % 2 == 0)
+//         {
+//             calc++;
+//         }
+//     }
+//     return calc;
+// }
+// void PrintArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write(array[i] + " ");
+//     }
+//     Console.WriteLine();
+// }
+// Console.WriteLine();
 
-Console.Write("Количество четных = " + numEvenCounter(fillArray));
+// Console.Write("Количество четных = " + sumOdd(newArray));
+
+
+
+// Задача 36: Задайте одномерный массив, заполненный случайными числами.
+// Найдите сумму элементов, стоящих на нечётных позициях.
+// Размер массива, минимальное значение и максимальное значение вводим через консоль
+
+// [3, 7, 23, 12] -> 19
+
+// [-4, -6, 89, 6] -> 0
+
+// Console.Write("Введите размер массива: ");
+// int numsize = int.Parse(Console.ReadLine()!);
+
+// Console.WriteLine("Введите минимальное значение");
+// int min = int.Parse(Console.ReadLine()!);
+
+// Console.WriteLine("Введите максимальное значение");
+// int max = int.Parse(Console.ReadLine()!);
+
+// int[] newArray = GenerateArray(numsize, min, max);
+// Console.WriteLine();
+
+// PrintArray(newArray);
+
+// int[] GenerateArray(int size, int min, int max)
+// {
+//     int[] arrayRnd = new int[size];
+//     for (int i = 0; i < size; i++)
+//     {
+//         arrayRnd[i] = new Random().Next(min, max + 1);
+//     }
+//     return arrayRnd;
+// }
+
+// int sumOdd(int[] newArray)
+// {
+//     int summ = 0;
+//     for (int i = 1; i < newArray.Length; i += 2)
+//     {
+
+//         summ += newArray[i];
+//     }
+//     return summ;
+// }
+// void PrintArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write(array[i] + " ");
+//     }
+//     Console.WriteLine();
+// }
+// Console.WriteLine();
+
+// Console.Write("Сумма нечетных = " + sumOdd(newArray));
