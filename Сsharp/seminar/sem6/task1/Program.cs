@@ -11,10 +11,11 @@ Console.WriteLine("Введите максимальное значение");
 int maxvalue = int.Parse(Console.ReadLine()!);
 
 int[] arr = FillArray(num, minvalue, maxvalue);
-
+Console.WriteLine();
 PrintArray(arr);
 Console.WriteLine();
 ReverseArray(arr);
+Console.WriteLine();
 PrintArray(arr);
 
 
