@@ -1,25 +1,30 @@
-﻿Console.WriteLine("Задайте количество чисел: ");
-int num = int.Parse(Console.ReadLine()!);
-int[] arr = new int[num];
+﻿//  Задача 45: Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного копирования.
 
-Console.WriteLine($" -> {CounterPosNumber(FillArray(arr))}");
 
-int[] FillArray(int[] array)
+int[] arr = { 5, 4, 7, 2, 9, 20, 10, 112 };
+
+int[] copy = new int[arr.Length];
+Array.Copy(arr, copy, arr.Length);
+
+ReverseArray(arr);
+Console.WriteLine();
+PrintArray(arr);
+// Console.WriteLine(String.Join(", ", copy));        // 5, 4, 7, 2, 9
+void PrintArray(int[] array)
 {
-    for (int j = 0; j < num; j++)
+   for (int i = 0; i < array.Length; i++)
     {
-        Console.WriteLine($"Введите {j + 1} число");
-        arr[j] = int.Parse(Console.ReadLine()!);
+        Console.Write($"{array[i]} ");
     }
-    return array;
 }
 
-int CounterPosNumber(int[] array)
+int[] ReverseArray(int[] array)
 {
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] > 0) count++;
-    }
-    return count;
+        for (int i = 0; i < array.Length/2; i++)
+        {
+            int buff = array[array.Length - i - 1];
+            array[array.Length - i - 1] = array[i];
+            array[i] = buff;
+        }
+    return array;
 }
