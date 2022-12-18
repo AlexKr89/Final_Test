@@ -1,90 +1,66 @@
-﻿// Задача 39: Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом месте, а первый - на последнем и т.д.)
-// [1 2 3 4 5] -> [5 4 3 2 1]
-// [6 7 3 6] -> [6 3 7 6]
+﻿
+// Задача 40: Напишите программу, которая принимает 
+// на вход три числа и проверяет, может ли существовать 
+// треугольник с сторонами такой длины.
+// Теорема о неравенстве треугольника: каждая сторона 
+// треугольника меньше суммы двух других сторон.
 
-Console.WriteLine("Введите размер массива");
-int arrayLength = int.Parse(Console.ReadLine()!);
-Console.WriteLine("Введите минимальное значение в массиве");
-int minValue = int.Parse(Console.ReadLine()!);
-Console.WriteLine("Введите максимальное значение в массиве");
-int maxValue = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите сторону А");
+int numA = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите сторону B");
+int numB = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите сторону C");
+int numC = int.Parse(Console.ReadLine()!);
 
-int[] array = CreateArray(arrayLength, 1, 10);
-Console.WriteLine();
-PrintArray(array);
-Console.WriteLine();
-ReverseArray(array);
-PrintArray(array);
-
-
-
-
-int[] ReverseArray(int[] array)
+if (triangle(numA, numB, numC))
 {
-    // int[] newArray = new int[array.Length];
-    // int i = 0;
-    // int j = array.Length - 1;
-    // while(i < array.Length)
-    // {
-    //     newArray[j] = array[i];
-    //     i++;
-    //     j--;
-    // }
-
-    for (int i = 0; i < array.Length / 2; i++)
-    {
-        int buff = array[array.Length - i - 1];
-        array[array.Length - i - 1] = array[i];
-        array[i] = buff;
-    }
-    return array;
+    Console.WriteLine("Треугольник существует");
+}
+else
+{
+    Console.WriteLine("Треугольник не существует");
 }
 
-double[] CreateDoubleArray(int length, int minValue, int maxValue)
+bool triangle(int a, int b, int c)
 {
-    double[] array = new double[length];
-    for (int i = 0; i < array.Length; i++)
-    {
-        double number = new Random().NextDouble() * (maxValue - minValue) + minValue;
-        array[i] = Math.Round(number, 2);
-    }
-    return array;
+
+    return a + b > c && a + c > b && b + c > a;
+
 }
 
-int[] CreateArray(int length, int minValue, int maxValue)
+int a = int.Parse(Console.ReadLine()!);
+int b = int.Parse(Console.ReadLine()!);
+int c = int.Parse(Console.ReadLine()!);
+ 
+ 
+ 
+if (IsTriangleExists(a,b,c))
 {
-    int[] array = new int[length];
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = new Random().Next(minValue, maxValue + 1);
-    }
-    return array;
+    Console.WriteLine("Существует");
 }
-
-void PrintArray(int[] array)
+else
 {
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i] + " ");
-    }
-    Console.WriteLine();
+    Console.WriteLine("Не существует");
 }
-
-void PrintDoubleArray(double[] array)
+ 
+ 
+ 
+bool IsTriangleExists(int a, int b, int c)
 {
-    for (int i = 0; i < array.Length; i++)
+    if (a + b <= c)
     {
-        Console.Write(array[i] + " ");
+        return false;
     }
-    Console.WriteLine();
-}
-
-int SumOddPosition(int[] array)
-{
-    int sum = 0;
-    for (int i = 1; i < array.Length; i += 2)
+    else if (b + c <= a)
     {
-        sum += array[i];
+        return false;
     }
-    return sum;
+    else if (c + a <= b)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 }

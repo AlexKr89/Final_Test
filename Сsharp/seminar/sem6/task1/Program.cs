@@ -1,36 +1,45 @@
-﻿int a = int.Parse(Console.ReadLine()!);
-int b = int.Parse(Console.ReadLine()!);
-int c = int.Parse(Console.ReadLine()!);
- 
- 
- 
-if (IsTriangleExists(a,b,c))
+﻿// Задача 39: Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом месте, а первый - на последнем и т.д.)
+// [1 2 3 4 5] -> [5 4 3 2 1]
+// [6 7 3 6] -> [6 3 7 6]
+
+
+Console.WriteLine("Введите длину массива");
+int num = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите минимальное значение");
+int minvalue = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите максимальное значение");
+int maxvalue = int.Parse(Console.ReadLine()!);
+
+int[] arr = FillArray(num, minvalue, maxvalue);
+PrintArray(arr);
+Console.WriteLine($" -> {ReverseArray(arr)}");
+
+
+
+int[] FillArray(int n, int min, int max)
 {
-    Console.WriteLine("Существует");
+    int[] array = new int[n];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(min, max + 1);
+    }
+    return array;
 }
-else
+
+void PrintArray(int[] array)
 {
-    Console.WriteLine("Не существует");
+   for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
 }
- 
- 
- 
-bool IsTriangleExists(int a, int b, int c)
+
+int[] ReverseArray(int[] array)
 {
-    if (a + b <= c)
-    {
-        return false;
-    }
-    else if (b + c <= a)
-    {
-        return false;
-    }
-    else if (c + a <= b)
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+        for (int i = 0; i < array.Length/2; i++)
+        {
+            int buff = array[array.Length - 1 - i];
+            array[array.Length - 1 - i] = array[i];
+        }
+    return array;
 }
