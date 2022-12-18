@@ -5,7 +5,7 @@
 // 3  -> 11
 // 2  -> 10
 
-Console.WriteLine("Введите число");
+Console.WriteLine("Введите число: ");
 int number = int.Parse(Console.ReadLine()!);
 Console.WriteLine(TenToTwo(number));
 

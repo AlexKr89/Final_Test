@@ -11,9 +11,11 @@ Console.WriteLine("Введите максимальное значение");
 int maxvalue = int.Parse(Console.ReadLine()!);
 
 int[] arr = FillArray(num, minvalue, maxvalue);
-PrintArray(arr);
-Console.WriteLine($" -> {ReverseArray(arr)}");
 
+PrintArray(arr);
+Console.WriteLine();
+ReverseArray(arr);
+PrintArray(arr);
 
 
 int[] FillArray(int n, int min, int max)
@@ -38,8 +40,9 @@ int[] ReverseArray(int[] array)
 {
         for (int i = 0; i < array.Length/2; i++)
         {
-            int buff = array[array.Length - 1 - i];
-            array[array.Length - 1 - i] = array[i];
+            int buff = array[array.Length - i - 1];
+            array[array.Length - i - 1] = array[i];
+            array[i] = buff;
         }
     return array;
 }
