@@ -289,7 +289,7 @@
 // Console.Write("Введите элементы(через пробел): ");
 // int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 // int count = 0;
- 
+
 // for (int i = 0; i < arr.Length; i++)
 // {
 //     if (arr[i] > 0)
@@ -297,7 +297,7 @@
 //         count++;
 //     }
 // }
- 
+
 // Console.WriteLine($"Кол-во элементов > 0: {count}");
 
 // Console.WriteLine("Задайте количество чисел: ");
@@ -325,3 +325,153 @@
 //     }
 //     return count;
 // }
+
+// Задача 47. Задайте двумерный массив размером m×n,
+// заполненный случайными вещественными числами.
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
+
+// Console.WriteLine("Введите m");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите n");
+// int n = int.Parse(Console.ReadLine()!);
+
+// double[,] myMatrix = Create2DArray(m, n, -10, 10);
+// Print2DArray(myMatrix);
+
+
+// double[,] Create2DArray(int m, int n, int min, int max)
+// {
+//     double[,] matrix = new double[m, n];
+
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = Math.Round(new Random().NextDouble() * (max - min) + min, 1);
+//         }
+//     }
+//     return matrix;
+// }
+
+// void Print2DArray(double[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             Console.Write(matrix[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
+// и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 1
+// 7 -> такого числа в массиве нет
+
+// Console.WriteLine("Введите m");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите n");
+// int n = int.Parse(Console.ReadLine()!);
+
+// int[,] myMatrix = Create2DArray(m, n, 0, 10);
+// Print2DArray(myMatrix);
+
+// Console.WriteLine("Введите номер строки");
+// int line = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите номер столбца");
+// int col = int.Parse(Console.ReadLine()!);
+
+// if (line > m || col > n) Console.WriteLine("такого числа в массиве нет");
+// else Console.WriteLine(myMatrix[line - 1, col - 1]);
+
+// int[,] Create2DArray(int m, int n, int min, int max)
+// {
+//     int[,] matrix = new int[m, n];
+
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = new Random().Next(min, max + 1);
+//         }
+//     }
+//     return matrix;
+// }
+
+// void Print2DArray(int[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             Console.Write(matrix[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+Console.WriteLine("Введите m");
+int m = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите n");
+int n = int.Parse(Console.ReadLine()!);
+Console.WriteLine();
+
+int[,] myMatrix = Create2DArray(m, n, 1, 10);
+Print2DArray(myMatrix);
+Console.WriteLine();
+
+for (int j = 0; j < myMatrix.GetLength(1); j++)
+{
+    double sumCol = 0;
+    int i = 0;
+    while (i < myMatrix.GetLength(0))
+    {
+        sumCol += myMatrix[i, j];
+        i++;
+    }
+    double avgVal = sumCol / i;
+    Console.Write(Math.Round(avgVal, 1) + "; ");
+}
+
+int[,] Create2DArray(int m, int n, int min, int max)
+{
+    int[,] matrix = new int[m, n];
+
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = new Random().Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
+
+void Print2DArray(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            Console.Write(matrix[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
