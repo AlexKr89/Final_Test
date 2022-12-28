@@ -427,50 +427,171 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
+// Console.WriteLine("Введите m");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите n");
+// int n = int.Parse(Console.ReadLine()!);
+// Console.WriteLine();
+
+// int[,] myMatrix = Create2DArray(m, n, 1, 10);
+// Print2DArray(myMatrix);
+// Console.WriteLine();
+
+// for (int j = 0; j < myMatrix.GetLength(1); j++)
+// {
+//     double sumCol = 0;
+//     int i = 0;
+//     while (i < myMatrix.GetLength(0))
+//     {
+//         sumCol += myMatrix[i, j];
+//         i++;
+//     }
+//     double avgVal = sumCol / i;
+//     Console.Write(Math.Round(avgVal, 1) + "; ");
+// }
+
+// int[,] Create2DArray(int m, int n, int min, int max)
+// {
+//     int[,] matrix = new int[m, n];
+
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = new Random().Next(min, max + 1);
+//         }
+//     }
+//     return matrix;
+// }
+
+// void Print2DArray(int[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             Console.Write(matrix[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Задача 54: Задайте двумерный массив. Напишите программу, 
+// которая упорядочит по убыванию элементы каждой строки двумерного массива.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// В итоге получается вот такой массив:
+// 7 4 2 1
+// 9 5 3 2
+// 8 4 4 2
+
+// Console.WriteLine("Введите m");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите n");
+// int n = int.Parse(Console.ReadLine()!);
+// Console.WriteLine();
+// int[,] myMatrix = Create2DArray(m, n, 1, 10);
+// Print2DArray(myMatrix);
+// Console.WriteLine();
+// int[,] newMatrix = SortMatrix(myMatrix);
+// Print2DArray(newMatrix);
+
+// int[,] SortMatrix(int[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1) - 1; j++)
+//         {
+//             for (int k = j + 1; k < matrix.GetLength(1); k++)
+//             {
+//                 if (matrix[i, k] > matrix[i, j])
+//                 {
+//                     int temp = matrix[i, j];
+//                     matrix[i, j] = matrix[i, k];
+//                     matrix[i, k] = temp;
+//                 }
+//             }
+//         }
+//     }
+//     return matrix;
+// }
+
+// int[,] Create2DArray(int m, int n, int min, int max)
+// {
+//     int[,] matrix = new int[m, n];
+
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = new Random().Next(min, max);
+//         }
+//     }
+//     return matrix;
+// }
+
+// void Print2DArray(int[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             Console.Write(matrix[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
 Console.WriteLine("Введите m");
 int m = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите n");
 int n = int.Parse(Console.ReadLine()!);
-Console.WriteLine();
 
-int[,] myMatrix = Create2DArray(m, n, 1, 10);
-Print2DArray(myMatrix);
-Console.WriteLine();
+int[,] helixMatrix = HelixFillMatrix(m, n);
+PrintMatrix(helixMatrix);
 
-for (int j = 0; j < myMatrix.GetLength(1); j++)
-{
-    double sumCol = 0;
-    int i = 0;
-    while (i < myMatrix.GetLength(0))
-    {
-        sumCol += myMatrix[i, j];
-        i++;
-    }
-    double avgVal = sumCol / i;
-    Console.Write(Math.Round(avgVal, 1) + "; ");
-}
-
-int[,] Create2DArray(int m, int n, int min, int max)
+int[,] HelixFillMatrix(int m, int n)
 {
     int[,] matrix = new int[m, n];
 
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int minValue = 1;
+    int maxValue = m * n;
+    int i = 0;
+    int j = 0;
+    int point = 0;
+    while (minValue <= maxValue)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        matrix[i, j] = minValue;
+        if (i == point && j < n - 1 - point) j++;
+        else if (j == n - 1 - point && i < m - 1 - point) i++;
+        else if (i == m - 1 - point && j > point) j--;
+        else if (j == point && i > point) i--;
+        if (i == point && j == point)
         {
-            matrix[i, j] = new Random().Next(min, max + 1);
+            i++; j++; point++;  
         }
+        minValue++;
     }
     return matrix;
 }
 
-void Print2DArray(int[,] matrix)
+
+void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + " ");
+            if (matrix[i, j] < 10) Console.Write("0" + matrix[i, j] + " ");
+            else Console.Write(matrix[i, j] + " ");
         }
         Console.WriteLine();
     }
