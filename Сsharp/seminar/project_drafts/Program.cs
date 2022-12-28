@@ -550,49 +550,74 @@
 // 11 16 15 06
 // 10 09 08 07
 
-Console.WriteLine("Введите m");
-int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите m");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите n");
+// int n = int.Parse(Console.ReadLine()!);
+
+// int[,] helixMatrix = HelixFillMatrix(m, n);
+// PrintMatrix(helixMatrix);
+
+// int[,] HelixFillMatrix(int m, int n)
+// {
+//     int[,] matrix = new int[m, n];
+
+//     int minValue = 1;
+//     int maxValue = m * n;
+//     int i = 0;
+//     int j = 0;
+//     int point = 0;
+//     while (minValue <= maxValue)
+//     {
+//         matrix[i, j] = minValue;
+//         if (i == point && j < n - 1 - point) j++;
+//         else if (j == n - 1 - point && i < m - 1 - point) i++;
+//         else if (i == m - 1 - point && j > point) j--;
+//         else if (j == point && i > point) i--;
+//         if (i == point && j == point)
+//         {
+//             i++; j++; point++;  
+//         }
+//         minValue++;
+//     }
+//     return matrix;
+// }
+
+
+// void PrintMatrix(int[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             if (matrix[i, j] < 10) Console.Write("0" + matrix[i, j] + " ");
+//             else Console.Write(matrix[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+
+
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
+
 Console.WriteLine("Введите n");
+int m = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Введите m");
 int n = int.Parse(Console.ReadLine()!);
 
-int[,] helixMatrix = HelixFillMatrix(m, n);
-PrintMatrix(helixMatrix);
+Console.WriteLine(Ack(n, m));
 
-int[,] HelixFillMatrix(int m, int n)
+int Ack(int n, int m)
 {
-    int[,] matrix = new int[m, n];
-
-    int minValue = 1;
-    int maxValue = m * n;
-    int i = 0;
-    int j = 0;
-    int point = 0;
-    while (minValue <= maxValue)
-    {
-        matrix[i, j] = minValue;
-        if (i == point && j < n - 1 - point) j++;
-        else if (j == n - 1 - point && i < m - 1 - point) i++;
-        else if (i == m - 1 - point && j > point) j--;
-        else if (j == point && i > point) i--;
-        if (i == point && j == point)
-        {
-            i++; j++; point++;  
-        }
-        minValue++;
-    }
-    return matrix;
-}
-
-
-void PrintMatrix(int[,] matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[i, j] < 10) Console.Write("0" + matrix[i, j] + " ");
-            else Console.Write(matrix[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
+    if (n == 0)
+        return m + 1;
+    else
+    if (m == 0)
+        return Ack(n - 1, 1);
+    else 
+    return Ack(n - 1, Ack(n, m - 1));
 }
