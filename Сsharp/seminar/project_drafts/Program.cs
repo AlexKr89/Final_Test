@@ -597,6 +597,49 @@
 //     }
 // }
 
+// Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+
+// Console.WriteLine("Введите N");
+// int num = int.Parse(Console.ReadLine()!);
+
+// Console.WriteLine(OutputNumbers(num));
+
+// string OutputNumbers(int n)
+// {
+//     if (n == 1)
+//     {
+//         return n.ToString();
+//     }
+//     else
+//     {
+//         return n.ToString() + ", " + OutputNumbers(n - 1);
+//     }
+// }
+
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
+
+// Console.WriteLine("Введите M");
+// int numM = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите N");
+// int numN = int.Parse(Console.ReadLine()!);
+
+// Console.WriteLine(SumNumbers(numM, numN));
+
+// int SumNumbers(int m, int n)
+// {
+//     if (m == n)
+//     {
+//         return m;
+//     }
+//     else
+//     {
+//         return n + SumNumbers(m, n - 1);
+//     }
+// }
 
 
 // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
@@ -604,20 +647,19 @@
 // m = 3, n = 2 -> A(m,n) = 29
 
 
-Console.WriteLine("Введите n");
-int m = int.Parse(Console.ReadLine()!);
-Console.WriteLine("Введите m");
-int n = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите n");
+// int m = int.Parse(Console.ReadLine()!);
+// Console.WriteLine("Введите m");
+// int n = int.Parse(Console.ReadLine()!);
 
-Console.WriteLine(Ack(n, m));
+// Console.WriteLine(Ack(n, m));
 
-int Ack(int n, int m)
-{
-    if (n == 0)
-        return m + 1;
-    else
-    if (m == 0)
-        return Ack(n - 1, 1);
-    else 
-    return Ack(n - 1, Ack(n, m - 1));
-}
+// int Ack(int n, int m)
+// {
+//     if (n == 0)
+//         return m + 1;
+//     else if (m == 0)
+//         return Ack(n - 1, 1);
+//     else
+//         return Ack(n - 1, Ack(n, m - 1));
+// }
