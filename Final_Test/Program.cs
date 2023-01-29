@@ -1,20 +1,20 @@
 ﻿Console.WriteLine("Укажите размер массива");
 int num = int.Parse(Console.ReadLine()!);
-string[] arr = UserFillArray(num);
+string[] arr = FirstArray(num);
 Console.WriteLine();
 PrintArray(arr);
 Console.WriteLine();
 int count = CountStringsNewArray(arr);
 if (count > 0)
 {
-    string[] arrNew = FillArrayNew(arr, count);
+    string[] arrNew = FinalArray(arr, count);
     PrintArray(arrNew);
 }
 else Console.WriteLine("Не нашлось подходящих элементов");
 
 
 
-string[] UserFillArray(int number)
+string[] FirstArray(int number)
 {
     string[] array = new string[number];
     for (int i = 0; i < array.Length; i++)
@@ -44,7 +44,7 @@ int CountStringsNewArray(string[] array)
     return counter;
 }
 
-string[] FillArrayNew(string[] array, int counter)
+string[] FinalArray(string[] array, int counter)
 {
     string[] arrayNew = new string[counter];
     int j = 0;
